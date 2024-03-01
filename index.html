@@ -5,10 +5,12 @@
     <title>Atmosfar Aluminium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 </head>
 <body>
 <section class="header">
@@ -16,7 +18,11 @@
     <nav>
         
         <a href="index.html"><img src="images/logo.png"></a>
-        
+        <select class="change-lang" id="languageDropdown">
+            <option value="ua">UA</option>
+            <option value="ru">RU</option>
+            <option value="en" selected>EN</option>
+        </select>
         <div class="nav-links" id="navLinks">
             
            <i class="fa fa-times" onclick="hideMenu()"></i>
@@ -30,12 +36,12 @@
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
         <i class="fa fa-sun" onclick="showMenu()"></i>
+        
     </nav>
         
 <div class="text-box">
     <h1>Atmosfar</h1>
     <p>This is the undeniable beauty of the classic design of frame structures, increased requirements for energy efficiency, a variety of elements and types of opening, many color options, real Swedish quality multiplied by a large amount of testing.
-        
     </p>
     <a href="about.html" class="hero-btn">Visit Us To know More</a>
 </div>        
@@ -190,9 +196,40 @@
         navLinks.style.right = "-200px";
     }
     function addDarkmodeWidget() {
-      new Darkmode().showWidget();
+        new Darkmode({
+            bottom: '64px', // default: '32px'
+            right: '20px', // default: '32px'
+            left: 'unset', // default: 'unset'
+            time: '0.5s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: '#fff',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: false, // default: true,
+            label: '', // default: ''
+            autoMatchOsTheme: true // default: true
+        }).showWidget();
     }
+
     window.addEventListener('load', addDarkmodeWidget);
-</script>     
+
+
+    const maxImg = document.querySelector('.right-panel img');
+    const select = document.querySelector('select');
+    const allLang = ['en', 'ru', 'ua'];
+
+    document.querySelectorAll('.left-panel img').forEach(item => item.onmouseenter = (event) => maxImg.src = event.target.src);
+
+    select.addEventListener('change', changeURLLanguage);
+
+    // перенаправить на url с указанием языка
+    function changeURLLanguage() {
+        let lang = select.value;
+        location.href = window.location.pathname + '#' + lang;
+        location.reload();
+    }
+
+</script>
+
 </body>  
 </html>
