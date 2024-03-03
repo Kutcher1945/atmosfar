@@ -18,10 +18,10 @@
     <nav>
         
         <a href="index.html"><img src="images/logo.png"></a>
-        <select class="change-lang" id="languageDropdown">
+        <!-- <select class="change-lang" id="languageDropdown">
             <option value="ru" data-icon="flag-icon-ru" selected>РУС</option>
             <option value="en" data-icon="flag-icon-en">ENG</option>
-        </select>
+        </select> -->
         <div class="nav-links" id="navLinks">
             
            <i class="fa fa-times" onclick="hideMenu()"></i>
@@ -31,6 +31,12 @@
                 <li><a href="offer.html" id="navProducts">PRODUCTS</a></li>
                 <li><a href="blog.html" id="navDownloads">CERTEFICATES AND DOWNLOADS</a></li>
                 <li><a href="contact.html" id="navContact">CONTACT US</a></li>
+                <li>
+                    <select class="change-lang" id="languageDropdown">
+                        <option value="ru" data-icon="flag-icon-ru" id="ruOption">РУС</option>
+                        <option value="en" data-icon="flag-icon-en" id="enOption">ENG</option>
+                    </select>
+                </li>
             </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -213,6 +219,25 @@
     }
 
     window.addEventListener('load', addDarkmodeWidget);
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // Get the preferred language
+    var preferredLanguage = navigator.language || navigator.userLanguage;
+
+    // Get the language dropdown element
+    var languageDropdown = document.getElementById("languageDropdown");
+
+    // Set the selected option based on the preferred language
+    if (preferredLanguage.startsWith("ru")) {
+        languageDropdown.value = "ru";
+    } else {
+        languageDropdown.value = "en";
+    }
+
+    // Trigger the change event to update any language-dependent content
+    languageDropdown.dispatchEvent(new Event("change"));
+    });
 
 
     // const maxImg = document.querySelector('.right-panel img');
