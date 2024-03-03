@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <title>Atmosfar Aluminium</title>
+    <title id="headTitle">Atmosfar Aluminium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,31 +19,29 @@
         
         <a href="index.html"><img src="images/logo.png"></a>
         <select class="change-lang" id="languageDropdown">
-            <option value="ua">UA</option>
-            <option value="ru">RU</option>
-            <option value="en" selected>EN</option>
+            <option value="ru" data-icon="flag-icon-ru" selected>РУС</option>
+            <option value="en" data-icon="flag-icon-en">ENG</option>
         </select>
         <div class="nav-links" id="navLinks">
             
            <i class="fa fa-times" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="offer.html">PRODUCTS</a></li>
-                <li><a href="blog.html">CERTEFICATES AND DOWNLOADS</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="index.html" id="navHome">HOME</a></li>
+                <li><a href="about.html" id="navAbout">ABOUT</a></li>
+                <li><a href="offer.html" id="navProducts">PRODUCTS</a></li>
+                <li><a href="blog.html" id="navDownloads">CERTEFICATES AND DOWNLOADS</a></li>
+                <li><a href="contact.html" id="navContact">CONTACT US</a></li>
             </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
         <i class="fa fa-sun" onclick="showMenu()"></i>
-        
     </nav>
         
 <div class="text-box">
     <h1>Atmosfar</h1>
-    <p>This is the undeniable beauty of the classic design of frame structures, increased requirements for energy efficiency, a variety of elements and types of opening, many color options, real Swedish quality multiplied by a large amount of testing.
+    <p id="headerDescription">This is the undeniable beauty of the classic design of frame structures, increased requirements for energy efficiency, a variety of elements and types of opening, many color options, real Swedish quality multiplied by a large amount of testing.
     </p>
-    <a href="about.html" class="hero-btn">Visit Us To know More</a>
+    <a href="about.html" class="hero-btn" id="headerDescription2">Visit Us To know More</a>
 </div>        
         
 </section>
@@ -153,7 +151,7 @@
             <img src="images/user2.jpg">
             <div>
                 <p>These alloys are made up of the combination of magnesium and silicon; together they form Magnesium Silicide, popularly known for its good mechanical properties, particularly for good weld -ability, the greatest strength with good corrosion resistance and the ability to be anodized. It is more commonly used for the extrusion process. Currently, it’s been  widely used in the construction  of aircraft structures, yacht construction, automotive part (Audi A8 chassis) and bicycle frames</p>
-                <h3>David Byer</h3>
+                <h3 class="name1">David Byer</h3>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -185,6 +183,8 @@
     </div>
 </section>
 
+<script src="lang.js"></script>
+<script src="app.js"></script>
 <!-------JavaScript for toggle menu-------->
 <script>
     
@@ -203,7 +203,7 @@
             time: '0.5s', // default: '0.3s'
             mixColor: '#fff', // default: '#fff'
             backgroundColor: '#fff',  // default: '#fff'
-            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorDark: '#000000',  // default: '#100f2c'
             buttonColorLight: '#fff', // default: '#fff'
             saveInCookies: false, // default: true,
             label: '', // default: ''
@@ -214,20 +214,20 @@
     window.addEventListener('load', addDarkmodeWidget);
 
 
-    const maxImg = document.querySelector('.right-panel img');
-    const select = document.querySelector('select');
-    const allLang = ['en', 'ru', 'ua'];
+    // const maxImg = document.querySelector('.right-panel img');
+    // const select = document.querySelector('select');
+    // const allLang = ['en', 'ru', 'ua'];
 
-    document.querySelectorAll('.left-panel img').forEach(item => item.onmouseenter = (event) => maxImg.src = event.target.src);
+    // document.querySelectorAll('.left-panel img').forEach(item => item.onmouseenter = (event) => maxImg.src = event.target.src);
 
-    select.addEventListener('change', changeURLLanguage);
+    // select.addEventListener('change', changeURLLanguage);
 
-    // перенаправить на url с указанием языка
-    function changeURLLanguage() {
-        let lang = select.value;
-        location.href = window.location.pathname + '#' + lang;
-        location.reload();
-    }
+    // // перенаправить на url с указанием языка
+    // function changeURLLanguage() {
+    //     let lang = select.value;
+    //     location.href = window.location.pathname + '#' + lang;
+    //     location.reload();
+    // }
 
 </script>
 
